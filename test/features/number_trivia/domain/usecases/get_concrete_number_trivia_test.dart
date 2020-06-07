@@ -29,9 +29,10 @@ void main() {
       // act
       final result = await usecase(Params(number: tNumber));
       // assert
-      expect(result, Right(tNumberTrivia));
+      
       verify(mockNumberTriviaRepository.getConcreteNumberTrivia(tNumber));
       verifyNoMoreInteractions(mockNumberTriviaRepository);
+      expect(result, Right(tNumberTrivia));
     },
   );
 }
